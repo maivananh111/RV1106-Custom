@@ -111,7 +111,8 @@
 
 	pinctrl-names = "default";
 	pinctrl-0 = <&sdmmc1m0_clk &sdmmc1m0_cmd &sdmmc1m0_bus4>;
-	non-removable;
+	card-detect-delay = <200>;
+	cd-gpios = <&gpio2 RK_PA7 GPIO_ACTIVE_LOW>;
 
 	status = "okay";
 };
