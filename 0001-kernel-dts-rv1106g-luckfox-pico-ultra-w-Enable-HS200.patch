@@ -1,0 +1,27 @@
+From b9e8b96e4ece63c12e0e04f73987eb11ecbf9914 Mon Sep 17 00:00:00 2001
+From: maivananh111 <aaanh01@gmail.com>
+Date: Sat, 28 Jun 2025 22:47:33 +0700
+Subject: [PATCH] kernel: dts: rv1106g-luckfox-pico-ultra-w: Enable HS200 mode
+ for mmc
+
+Signed-off-by: maivananh111 <aaanh01@gmail.com>
+---
+ .../kernel/arch/arm/boot/dts/rv1106g-luckfox-pico-ultra-w.dts   | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/sysdrv/source/kernel/arch/arm/boot/dts/rv1106g-luckfox-pico-ultra-w.dts b/sysdrv/source/kernel/arch/arm/boot/dts/rv1106g-luckfox-pico-ultra-w.dts
+index cb08548fc..9aad900e7 100755
+--- a/sysdrv/source/kernel/arch/arm/boot/dts/rv1106g-luckfox-pico-ultra-w.dts
++++ b/sysdrv/source/kernel/arch/arm/boot/dts/rv1106g-luckfox-pico-ultra-w.dts
+@@ -63,7 +63,7 @@ &emmc {
+ 	bus-width = <8>;
+ 	cap-mmc-highspeed;
+ 	non-removable;
+-	// mmc-hs200-1_8v;
++	mmc-hs200-1_8v;
+ 	rockchip,default-sample-phase = <90>;
+ 	no-sdio;
+ 	no-sd;
+-- 
+2.34.1
+

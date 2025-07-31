@@ -1,0 +1,28 @@
+From a52d9f93b83e4ca65f38862e9e0a117d5b3317ba Mon Sep 17 00:00:00 2001
+From: maivananh111 <aaanh01@gmail.com>
+Date: Sun, 29 Jun 2025 10:19:20 +0700
+Subject: [PATCH 2/2] kernel: dts: rv1106g-luckfox-pico-ultra-w: Support sd
+ card detect
+
+Signed-off-by: maivananh111 <aaanh01@gmail.com>
+---
+ .../kernel/arch/arm/boot/dts/rv1106g-luckfox-pico-ultra-w.dts  | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/sysdrv/source/kernel/arch/arm/boot/dts/rv1106g-luckfox-pico-ultra-w.dts b/sysdrv/source/kernel/arch/arm/boot/dts/rv1106g-luckfox-pico-ultra-w.dts
+index 49a1ea4e8..ea515a4c6 100755
+--- a/sysdrv/source/kernel/arch/arm/boot/dts/rv1106g-luckfox-pico-ultra-w.dts
++++ b/sysdrv/source/kernel/arch/arm/boot/dts/rv1106g-luckfox-pico-ultra-w.dts
+@@ -111,7 +111,8 @@ &sdio {
+ 
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&sdmmc1m0_clk &sdmmc1m0_cmd &sdmmc1m0_bus4>;
+-	non-removable;
++	card-detect-delay = <200>;
++	cd-gpios = <&gpio2 RK_PA7 GPIO_ACTIVE_LOW>;
+ 
+ 	status = "okay";
+ };
+-- 
+2.34.1
+

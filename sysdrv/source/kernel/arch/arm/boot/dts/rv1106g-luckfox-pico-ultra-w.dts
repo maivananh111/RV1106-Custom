@@ -111,7 +111,7 @@
 
 	pinctrl-names = "default";
 	pinctrl-0 = <&sdmmc1m0_clk &sdmmc1m0_cmd &sdmmc1m0_bus4>;
-	card-detect-delay = <200>;
+	card-detect-delay = <400>;
 	cd-gpios = <&gpio2 RK_PA7 GPIO_ACTIVE_LOW>;
 
 	status = "okay";
@@ -135,7 +135,7 @@
 
 /**********ETH**********/
 &gmac {
-	status = "okay";
+	status = "disabled";
 };
 
 /**********USB**********/
@@ -171,4 +171,11 @@
 	spidev@0 {
 		spi-max-frequency = <50000000>;
 	};
+};
+
+/**********LD2420**********/
+&uart4 {
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&uart4m1_xfer>;
 };

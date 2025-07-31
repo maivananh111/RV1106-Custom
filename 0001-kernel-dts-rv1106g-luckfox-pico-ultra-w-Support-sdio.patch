@@ -1,0 +1,51 @@
+From 11652be1e8bee78d9892ec5f6ae5fc038b4b5647 Mon Sep 17 00:00:00 2001
+From: maivananh111 <aaanh01@gmail.com>
+Date: Sun, 29 Jun 2025 10:17:59 +0700
+Subject: [PATCH 1/2] kernel: dts: rv1106g-luckfox-pico-ultra-w: Support sdio
+ sd card
+
+Signed-off-by: maivananh111 <aaanh01@gmail.com>
+---
+ .../boot/dts/rv1106g-luckfox-pico-ultra-w.dts | 26 +++++++++++++++++++
+ 1 file changed, 26 insertions(+)
+
+diff --git a/sysdrv/source/kernel/arch/arm/boot/dts/rv1106g-luckfox-pico-ultra-w.dts b/sysdrv/source/kernel/arch/arm/boot/dts/rv1106g-luckfox-pico-ultra-w.dts
+index 9aad900e7..49a1ea4e8 100755
+--- a/sysdrv/source/kernel/arch/arm/boot/dts/rv1106g-luckfox-pico-ultra-w.dts
++++ b/sysdrv/source/kernel/arch/arm/boot/dts/rv1106g-luckfox-pico-ultra-w.dts
+@@ -95,6 +95,32 @@ &sdmmc {
+ 	status = "okay";
+ };
+ 
++/**********SDIO**********/
++&sdio {
++	max-freqency = <50000000>;
++	bus-width = <4>;
++
++	no-mmc;
++	cap-mmc-highspeed;
++	cap-sd-highspeed;
++	disable-wp;
++	cap-sdio-irq;
++	no-1-8-v;
++	supports-sdio;
++	rockchip,default-sample-phase = <90>;
++
++	pinctrl-names = "default";
++	pinctrl-0 = <&sdmmc1m0_clk &sdmmc1m0_cmd &sdmmc1m0_bus4>;
++	non-removable;
++
++	status = "okay";
++};
++
++/**********Disable RGB interface to use SDIO**********/
++&rgb {
++	status = "disabled";
++};
++
+ &pinctrl{
+ 	sdmmc0{
+ 		sdmmc0_det: sdmmc0-det {
+-- 
+2.34.1
+

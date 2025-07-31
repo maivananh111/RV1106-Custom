@@ -1,0 +1,27 @@
+From f80d9c6db0b1fa0e91fe99e0cffb92a4f6a0aec0 Mon Sep 17 00:00:00 2001
+From: maivananh111 <aaanh01@gmail.com>
+Date: Sat, 28 Jun 2025 22:44:24 +0700
+Subject: [PATCH] uboot: dts: rv1106-u-boot: Correct emmc speed for old version
+ board
+
+Signed-off-by: maivananh111 <aaanh01@gmail.com>
+---
+ sysdrv/source/uboot/u-boot/arch/arm/dts/rv1106-u-boot.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/sysdrv/source/uboot/u-boot/arch/arm/dts/rv1106-u-boot.dtsi b/sysdrv/source/uboot/u-boot/arch/arm/dts/rv1106-u-boot.dtsi
+index 8821862db..118cea94e 100644
+--- a/sysdrv/source/uboot/u-boot/arch/arm/dts/rv1106-u-boot.dtsi
++++ b/sysdrv/source/uboot/u-boot/arch/arm/dts/rv1106-u-boot.dtsi
+@@ -29,7 +29,7 @@
+ &emmc {
+ 	mmc-ecsd = <0x3F000>;
+ 	bus-width = <8>;
+-	mmc-hs200-1_8v;
++	mmc-ddr-3_3v;
+ 	u-boot,dm-spl;
+ 	status = "okay";
+ };
+-- 
+2.34.1
+
