@@ -33,6 +33,20 @@
 		BT,wake_host_irq = <&gpio1 RK_PA2 GPIO_ACTIVE_HIGH>;
 		status = "okay";
 	};
+
+	gpio-keys {
+		compatible = "gpio-keys";
+		autorepeat;
+
+		key {
+			gpios = <&gpio1 RK_PC6 GPIO_ACTIVE_LOW>;
+			linux,code = <KEY_ENTER>;
+			label = "BUTTON";
+			linux,input-type = <1>;
+			wakeup-source;
+			debounce-interval = <100>;
+		};
+	};
 };
 
 /**********CRU**********/
